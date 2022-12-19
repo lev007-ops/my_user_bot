@@ -1,4 +1,5 @@
 import asyncio
+from random import randint
 from pyrogram import Client, filters, types
 from pyrogram.errors import FloodWait
 
@@ -57,6 +58,23 @@ async def typing(client, message: types.Message):
 
         except FloodWait as e:
             await asyncio.sleep(e.x)
+
+
+@app.on_message(filters.me & filters.command("hack", prefixes="!"))
+async def hack_pentagon(client, message: types.Message):
+    perc = 0
+    while perc < 100:
+        try:
+            text = f"👮🏽‍♂️ Взлол Пентагона... {perc}%"
+            await message.edit(text)
+            perc += randint(1, 3)
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+    await message.edit("👮🏽‍♂️ Взлом произведён успешно...")
+    await asyncio.sleep(2)
+    await message.edit("👮🏽‍♂️ Поиск секретных данных...")
+    await asyncio.sleep(2)
+    await message.edit("👮🏽‍♂️ Найдены данные об НЛО 🛸")
 
 
 app.run()
