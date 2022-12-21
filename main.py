@@ -60,7 +60,7 @@ async def typing(client, message: types.Message):
             await asyncio.sleep(e.x)
 
 
-@app.on_message(filters.me & filters.command("hack", prefixes="!"))
+@app.on_message(filters.me & filters.command("hack_pentagon", prefixes="!"))
 async def hack_pentagon(client, message: types.Message):
     perc = 0
     while perc < 100:
@@ -76,5 +76,31 @@ async def hack_pentagon(client, message: types.Message):
     await asyncio.sleep(2)
     await message.edit("👮🏽‍♂️ Найдены данные об НЛО 🛸")
 
+
+@app.on_message(filters.me & filters.command("hack_user", prefixes="!"))
+async def hack_user(client, message: types.Message):
+    user = message.chat
+    perc = 0
+    while perc < 100:
+        try:
+            text = (f"🕵️ Получение данных об пользователе {user.first_name} "
+                    f"{user.last_name}... {perc}%")
+            await message.edit(text)
+            perc += randint(1, 3)
+        except FloodWait as e:
+            await asyncio.sleep(e.x)
+    await message.edit("🕵️ Данные получены успешно...")
+    await asyncio.sleep(2)
+    await message.edit("🕵️ Получение криптографического ключа шифрофки "
+                       "данных telegram...")
+    await asyncio.sleep(2)
+    await message.edit("🕵️ Расшифровка данных...")
+    await asyncio.sleep(2)
+    await message.edit("🕵️ Данные пользователя:\n"
+                       f"Username: {user.username}\n"
+                       f"Уникальный ключ пользователя: {user.id}\n"
+                       f"Имя пользователя: {user.first_name}\n"
+                       f"Фамилия пользователя: {user.last_name}\n\n"
+                       "*пустое поле - значение отсутствует")
 
 app.run()
