@@ -101,6 +101,6 @@ async def hack_user(client, message: types.Message):
                        f"Уникальный ключ пользователя: {user.id}\n"
                        f"Имя пользователя: {user.first_name}\n"
                        f"Фамилия пользователя: {user.last_name}\n\n"
-                       "*пустое поле - значение отсутствует")
+                       "*None - значение отсутствует")
 
 app.run()
