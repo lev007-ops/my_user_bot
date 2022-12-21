@@ -65,7 +65,7 @@ async def hack_pentagon(client, message: types.Message):
     perc = 0
     while perc < 100:
         try:
-            text = f"👮🏽‍♂️ Взлол Пентагона... {perc}%"
+            text = f"👮🏽‍♂️ Взлом Пентагона... {perc}%"
             await message.edit(text)
             perc += randint(1, 3)
         except FloodWait as e:
