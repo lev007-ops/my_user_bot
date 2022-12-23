@@ -68,7 +68,7 @@ async def hack_pentagon(client, message: types.Message):
             text = f"👮🏽‍♂️ Взлом Пентагона... {perc}%"
             await message.edit(text)
             perc += randint(1, 3)
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(0.3)
         except FloodWait as e:
             await asyncio.sleep(e.x)
     await message.edit("👮🏽‍♂️ Взлом произведён успешно...")
@@ -88,7 +88,7 @@ async def hack_user(client, message: types.Message):
                     f"{user.last_name}... {perc}%")
             await message.edit(text)
             perc += randint(1, 3)
-            await asyncio.sleep(0.5)
+            await asyncio.sleep(0.3)
         except FloodWait as e:
             await asyncio.sleep(e.x)
     await message.edit("🕵️ Данные получены успешно...")
